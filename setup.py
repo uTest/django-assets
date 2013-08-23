@@ -6,30 +6,9 @@ from setuptools import setup, find_packages
 
 import multiprocessing
 
-# Figure out the version; this could be done by importing the
-# module, though that requires dependencies to be already installed,
-# which may not be the case when processing a pip requirements
-# file, for example.
-def parse_version(asignee):
-    import os, re
-    here = os.path.dirname(os.path.abspath(__file__))
-    version_re = re.compile(
-        r'__version__ = (\(.*?\))')
-    with open(os.path.join(here, 'django_assets', '__init__.py')) as fp:
-        for line in fp:
-            match = version_re.search(line)
-            if match:
-                version = eval(match.group(1))
-                return ".".join(map(str, version))
-        else:
-            raise Exception("cannot find version")
-version = parse_version('__version__')
-webassets_version = parse_version('__webassets_version__')
-
-
 setup(
     name='django-assets',
-    version=version,
+    version='0.7.3',
     url='http://github.com/miracle2k/django-assets',
     license='BSD',
     author='Michael Elsdörfer',
@@ -42,7 +21,7 @@ setup(
     platforms='any',
     install_requires=[
         'Django>=1.1',
-        'webassets==0.8',
+        'webassets>=0.8',
         ],
     classifiers=[
         'Environment :: Web Environment',
