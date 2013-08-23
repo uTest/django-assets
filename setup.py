@@ -42,7 +42,7 @@ setup(
     platforms='any',
     install_requires=[
         'Django>=1.1',
-        'webassets==%s' % webassets_version,
+        'webassets==0.8',
         ],
     classifiers=[
         'Environment :: Web Environment',
